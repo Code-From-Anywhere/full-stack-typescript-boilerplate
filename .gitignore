@@ -1,0 +1,6 @@
+node_modules/
+apps/app/.turbo/
+apps/web/.turbo/
+apps/server/.turbo/
+packages/core/.turbo/
+packages/ui/.turbo/
