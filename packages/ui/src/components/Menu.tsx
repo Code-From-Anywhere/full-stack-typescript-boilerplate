@@ -14,7 +14,7 @@ const Menu = () => {
         return (
           <Li key={`page${page.key}`} className="w-full">
             <Button
-              className="p-4 border-b bg-white border-b-gray-300 w-full flex flex-row items-center justify-between"
+              className="p-4 border-b  border-b-gray-300 w-full flex flex-row items-center justify-between"
               textClassName="text-xl hover:text-blue-800"
               onClick={() => router.push(page.key === "index" ? "/" : page.key)}
             >

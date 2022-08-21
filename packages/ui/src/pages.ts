@@ -8,7 +8,7 @@ import todo from "./pages/todo";
 import { PageType } from "./types";
 import users from "./pages/users";
 import todos from "./pages/todos";
-
+import profile from "./pages/profile";
 // here we create an object containing all our pages
 export const pagesObject = {
   menu,
@@ -18,6 +18,7 @@ export const pagesObject = {
   login,
   signup,
   todo,
+  profile,
   users,
   todos,
 };

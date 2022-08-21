@@ -43,13 +43,9 @@ const { publicRuntimeConfig } = getConfig();
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const path = router.route.slice(1);
-  const siteName =
-    publicRuntimeConfig.NEXT_PUBLIC_SITE === "sensible"
-      ? "Sensible"
-      : "React with Native";
-  console.log({ site: publicRuntimeConfig.NEXT_PUBLIC_SITE, siteName });
   const pageKey = (path === "" ? "index" : path) as keyof typeof pagesObject;
   const page = pages.find((x) => x.key === pageKey);
+  const siteName = "Bootcamp App";
   const title = page ? `${getPageTitle(page)} - ${siteName}` : siteName;
 
   return (
@@ -61,17 +57,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AlertProvider>
         <ModalProvider>
           <StoreProvider>
-            <Div className="border-gray-200 border-b">
-              <P className="text-3xl h-32 flex justify-center items-center">
-                {siteName} Demo
-              </P>
-            </Div>
-            <Div className="grid grid-cols-4">
-              <Span className="col-span-1 border-r border-r-gray-200 min-h-screen">
-                <pagesObject.menu />
-              </Span>
-              <Div className="col-span-3">
-                <Component {...pageProps} />
+            <Div className="bg-orange-500">
+              <Div className="border-gray-200 border-b">
+                <P className="text-3xl h-32 flex justify-center items-center">
+                  {siteName}
+                </P>
+              </Div>
+              <Div className="grid grid-cols-4">
+                <Span className="col-span-1 border-r border-r-gray-200 min-h-screen">
+                  <pagesObject.menu />
+                </Span>
+                <Div className="col-span-3">
+                  <Component {...pageProps} />
+                </Div>
               </Div>
             </Div>
           </StoreProvider>

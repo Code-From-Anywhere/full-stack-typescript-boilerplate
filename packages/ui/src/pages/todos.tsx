@@ -27,13 +27,12 @@ const Page: RWNPage = () => {
 
   const renderTodo = (todo: TodoType, index: number) => {
     return (
-      <Div key={`todo${todo.id}`}>
-        <P>
-          <Span textClassName="font-bold">
-            {todo.title} ({todo.author})
-          </Span>
-          : {todo.text}
-        </P>
+      <Div className="border rounded-xl p-4 my-4" key={`todo${todo.id}`}>
+        <Div className="flex flex-row justify-between">
+          <P className="font-bold">{todo.title}</P>
+          <P>🧓 {todo.author}</P>
+        </Div>
+        <Span textClassName="italic">{todo.text}</Span>
       </Div>
     );
   };

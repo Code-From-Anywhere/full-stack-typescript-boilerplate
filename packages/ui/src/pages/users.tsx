@@ -1,4 +1,4 @@
-import { Div, P, Span } from "react-with-native";
+import { Div, P, Span, Img } from "react-with-native";
 import { api } from "../api";
 import { useEffect, useState } from "react";
 import { Form, InputValues } from "../components/Form";
@@ -25,10 +25,11 @@ const Page: RWNPage = () => {
 
   const renderUser = (user: PublicUserType, index: number) => {
     return (
-      <Div key={`user${user.id}`}>
-        <P>
-          <Span textClassName="font-bold">{user.email}</Span>
-        </P>
+      <Div className="border rounded-xl p-4 my-4" key={`user${user.id}`}>
+        <Div className="flex flex-col">
+          <Span textClassName="font-bold">{user.name}</Span>
+          {user.image ? <Img src={user.image} className="w-20 h-30" /> : null}
+        </Div>
       </Div>
     );
   };
@@ -39,6 +40,7 @@ const Page: RWNPage = () => {
 
   return (
     <Div scroll className="py-4 px-8 lg:px-20">
+      <P className="text-3xl">Users</P>
       {users?.map(renderUser)}
     </Div>
   );
