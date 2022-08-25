@@ -1,7 +1,5 @@
 import { Div } from "react-with-native";
-import { Item } from "react-with-native-select";
 import { api } from "../api";
-import { CodeLink } from "../components";
 import { Form, InputValues, makeField } from "../components/Form";
 import useStore from "../store";
 import { RWNPage } from "../types";

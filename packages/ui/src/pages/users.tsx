@@ -1,4 +1,4 @@
-import { Div, P, Span, Img } from "react-with-native";
+import { Div, P, Span, Image } from "react-with-native";
 import { api } from "../api";
 import { useEffect, useState } from "react";
 import { Form, InputValues } from "../components/Form";
@@ -28,7 +28,7 @@ const Page: RWNPage = () => {
       <Div className="border rounded-xl p-4 my-4" key={`user${user.id}`}>
         <Div className="flex flex-col">
           <Span textClassName="font-bold">{user.name}</Span>
-          {user.image ? <Img src={user.image} className="w-20 h-30" /> : null}
+          {user.image ? <Image src={user.image} className="w-20 h-30" /> : null}
         </Div>
       </Div>
     );

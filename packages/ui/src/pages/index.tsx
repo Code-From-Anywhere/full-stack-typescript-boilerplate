@@ -1,5 +1,5 @@
 import { Div, Input, P } from "react-with-native";
-import UI from "react-with-native-ui";
+import { UI } from "react-with-native-ui";
 import { CodeLink } from "../components";
 import useStore from "../store";
 import { RWNPage } from "../types";

@@ -1,4 +1,5 @@
-import DataForm, {
+import {
+  DataForm,
   setConfig,
   makeInputField,
   Field,
