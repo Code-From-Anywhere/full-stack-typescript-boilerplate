@@ -1,9 +1,13 @@
 import { Button, Div, Li, Span, Ul } from "react-with-native";
 import pages, { getPageTitle } from "../pages";
 import { useRouter } from "react-with-native-router";
+import useStore from "../store";
 
 const Menu = () => {
   const router = useRouter();
+  const [loginToken, setLoginToken, { hydrated }] = useStore("loginToken");
+
+  const isLoggedIn: boolean = !!loginToken;
 
   return (
     <Ul className="w-full">
@@ -24,6 +28,19 @@ const Menu = () => {
           </Li>
         );
       })}
+      {isLoggedIn ? (
+        <Li className="w-full">
+          <Button
+            className="p-4 border-b  border-b-gray-300 w-full flex flex-row items-center justify-between"
+            textClassName="text-xl hover:text-blue-800"
+            onClick={() => {
+              setLoginToken(null);
+            }}
+          >
+            <Span textClassName="text-red-500">Logout</Span>
+          </Button>
+        </Li>
+      ) : null}
     </Ul>
   );
 };

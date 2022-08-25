@@ -1,6 +1,10 @@
 import { DefaultModelType } from "sensible-core";
 
 export interface TodoType extends DefaultModelType {
+  /**
+   * reference to the user model
+   */
+  userId: number;
   status: "todo" | "doing" | "done";
   author: string;
   text: string;

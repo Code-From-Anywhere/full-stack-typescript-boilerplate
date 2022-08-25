@@ -10,6 +10,9 @@ export class Todo
   implements TodoType
 {
   @Column
+  public userId!: number;
+
+  @Column
   public author!: string;
 
   @Column

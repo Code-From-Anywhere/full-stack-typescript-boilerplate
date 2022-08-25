@@ -1,13 +1,10 @@
 import { Div } from "react-with-native";
 import { api } from "../api";
 import { Form, InputValues, makeField } from "../components/Form";
+import useStore from "../store";
 import { RWNPage } from "../types";
 
 const fields = [
-  makeField("text", {
-    field: "author",
-    title: "Author",
-  }),
   makeField("text", {
     field: "title",
     title: "Title",
@@ -23,19 +20,33 @@ const fields = [
 // otherwise your form won't be typesafe!
 
 const Page: RWNPage = () => {
+  const [loginToken] = useStore("loginToken");
+
   return (
     <Div scroll className="py-4 px-8 lg:px-20">
       <Form<{
-        author: InputValues["text"];
-        text: InputValues["textArea"];
         title: InputValues["text"];
+        text: InputValues["textArea"];
       }>
         title="Make new todo"
         fields={fields}
         onSubmit={async (values, resolve, reject) => {
           //do something with those values
 
-          const response = await api("todo", "POST", values);
+          const { text, title } = values;
+
+          if (loginToken === null) {
+            reject("You need to login first");
+            return;
+          }
+
+          const body = {
+            text,
+            title,
+            loginToken,
+          };
+
+          const response = await api("todo", "POST", body);
           if (response.success) {
             resolve(response.response);
           } else {

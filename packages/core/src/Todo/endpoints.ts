@@ -4,9 +4,19 @@ import { TodoType } from "./types";
 export interface TodoEndpoint extends Endpoint {
   method: "POST";
   body: {
-    author: string;
-    text: string;
+    loginToken: string;
     title: string;
+    text: string;
+  };
+  response: DefaultResponse;
+}
+
+export interface UpdateTodoEndpoint extends Endpoint {
+  method: "POST";
+  body: {
+    id: number;
+    loginToken: string;
+    status: "todo" | "doing" | "done";
   };
   response: DefaultResponse;
 }
@@ -23,4 +33,5 @@ export interface TodosEndpoint extends Endpoint {
 export interface TodoEndpoints {
   todo: TodoEndpoint;
   todos: TodosEndpoint;
+  updateTodo: UpdateTodoEndpoint;
 }

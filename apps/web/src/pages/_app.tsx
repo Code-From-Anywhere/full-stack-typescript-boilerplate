@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AlertProvider>
         <ModalProvider>
           <StoreProvider>
-            <Div className="bg-orange-500">
+            <Div>
               <Div className="border-gray-200 border-b">
                 <P className="text-3xl h-32 flex justify-center items-center">
                   {siteName}
